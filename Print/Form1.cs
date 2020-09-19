@@ -16,5 +16,16 @@ namespace Print
         {
             InitializeComponent();
         }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            e.Graphics.DrawString(textBox1.Text,new Font("Times New Roman",14,FontStyle.Bold),Brushes.Black, new PointF(100,100));
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (printPreviewDialog1.ShowDialog() == DialogResult.OK)
+                printDocument1.Print();
+        }
     }
 }
